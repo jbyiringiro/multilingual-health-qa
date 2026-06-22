@@ -1,0 +1,21 @@
+# Exp 3 - Add a language/region tag to the source ('<Aka_Gha> ...').
+# Hypothesis: an explicit subset tag helps the model condition generation on the
+# target language, which mT5 cannot infer reliably for short questions.
+name: mt5_small_tagged
+notes: "mT5-small + language tag prompt (vs Exp1 plain)."
+model_name: google/mt5-small
+prompt_style: tagged
+use_language_tag: true
+max_source_len: 320
+max_target_len: 320
+gen_max_new_tokens: 320
+epochs: 3
+lr: 3.0e-4
+train_batch_size: 4
+eval_batch_size: 4
+grad_accum: 4
+num_beams: 4
+optim: adafactor
+bf16: true
+gradient_checkpointing: true
+seed: 42

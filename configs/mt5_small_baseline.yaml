@@ -1,0 +1,20 @@
+# Exp 1 - Baseline encoder-decoder. Smallest mT5, plain prompt, short answers.
+# Purpose: establish a reproducible floor and validate the end-to-end pipeline.
+name: mt5_small_baseline
+notes: "Baseline: mT5-small, plain prompt, 256/256 lengths."
+model_name: google/mt5-small
+prompt_style: plain
+use_language_tag: false
+max_source_len: 256
+max_target_len: 256
+gen_max_new_tokens: 256
+epochs: 3
+lr: 3.0e-4
+train_batch_size: 4
+eval_batch_size: 4
+grad_accum: 4
+num_beams: 4
+optim: adafactor
+bf16: true
+gradient_checkpointing: true
+seed: 42

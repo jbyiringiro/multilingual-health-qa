@@ -1,0 +1,47 @@
+# Data (CC-BY-SA; redistribute via Zindi, not the repo). Keep the folder, ignore the big files.
+data/*.csv
+data/*.zip
+data/*.pdf
+data/*.json
+data/*.ipynb
+
+# Competition archive + course materials at repo root (not redistributed)
+*.zip
+Health*Summative*.pdf
+overnight_log.txt
+outputs/*.txt
+
+# Model artifacts & outputs
+outputs/models/
+outputs/checkpoints/
+*.safetensors
+*.bin
+wandb/
+runs/
+
+# Keep submissions tracked? No — they are regenerated. Keep only the log.
+outputs/submissions/*.csv
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.venv/
+env/
+*.egg-info/
+
+# Build artifact (regenerated from REPORT.md via scripts/build_report_html.py)
+report/REPORT.html
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Course-provided docs (not part of the solution)
+Assignment.md
+Rubric.md
+Challenge_Instructions.md
+
+# Report source kept local; only the PDF is shared
+report/REPORT.md

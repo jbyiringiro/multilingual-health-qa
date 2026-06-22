@@ -1,0 +1,23 @@
+# Exp 7 - AfriTeVa V2 base: a T5 pretrained on African languages (incl. Akan,
+# Amharic, Luganda, Swahili). Same encoder-decoder API as mT5, so it drops into
+# the identical pipeline. Hypothesis: African-centric pretraining beats mT5's
+# thin coverage of these languages at equal size.
+name: afriteva_v2_base
+notes: "AfriTeVa-V2-base (African-pretrained T5) + language tag."
+model_name: castorini/afriteva_v2_base
+prompt_style: tagged
+use_language_tag: true
+max_source_len: 320
+max_target_len: 384
+gen_max_new_tokens: 384
+epochs: 3
+lr: 5.0e-4
+train_batch_size: 2
+eval_batch_size: 2
+grad_accum: 8
+num_beams: 4
+optim: adafactor
+bf16: true
+gradient_checkpointing: true
+max_eval_samples: 600
+seed: 42

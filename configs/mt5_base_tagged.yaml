@@ -1,0 +1,21 @@
+# Exp 5 - Scale up to mT5-base (580M). Same recipe as the tagged small model.
+# On 8 GB VRAM use batch_size 2 + grad_accum 8 and gradient checkpointing to fit.
+name: mt5_base_tagged
+notes: "mT5-base + language tag; capacity vs small (Exp3)."
+model_name: google/mt5-base
+prompt_style: tagged
+use_language_tag: true
+max_source_len: 320
+max_target_len: 384
+gen_max_new_tokens: 384
+epochs: 3
+lr: 1.0e-3
+train_batch_size: 2
+eval_batch_size: 2
+grad_accum: 8
+num_beams: 4
+optim: adafactor
+bf16: true
+gradient_checkpointing: true
+max_eval_samples: 600
+seed: 42

@@ -1,0 +1,4 @@
+# Normalize line endings across platforms (keeps diffs clean on Windows/Colab).
+* text=auto eol=lf
+*.png binary
+*.ipynb -text

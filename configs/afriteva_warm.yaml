@@ -1,0 +1,24 @@
+# Exp 8 - Warm-start continuation of the 3-epoch AfriTeVa model.
+# model_name points at our already-trained model dir, so training resumes from
+# it (fresh optimizer) for ~1 more epoch instead of restarting. Gentler LR for
+# continued fine-tuning. Generation uses a LARGE batch (set on the CLI) to avoid
+# the small-batch generation slowdown.
+name: afriteva_v2_warm
+notes: "Warm-start AfriTeVa (+~1.2 epochs from 3-epoch checkpoint), gentler LR."
+model_name: outputs/models/afriteva_v2_base_full
+prompt_style: tagged
+use_language_tag: true
+max_source_len: 256
+max_target_len: 320
+gen_max_new_tokens: 320
+epochs: 1.2
+lr: 3.0e-4
+train_batch_size: 8
+eval_batch_size: 32
+grad_accum: 2
+num_beams: 2
+no_repeat_ngram_size: 3
+optim: adafactor
+bf16: true
+gradient_checkpointing: true
+seed: 42

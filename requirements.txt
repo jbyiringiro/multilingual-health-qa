@@ -1,0 +1,24 @@
+# Core ML stack for the Multilingual Health QA project (encoder-decoder fine-tuning).
+# Pin minimally; exact versions are captured in the report appendix for reproducibility.
+#
+# NOTE on local install (RTX 5070 / Blackwell sm_120, Windows, Python 3.13):
+#   torch must be the cu128 (or newer) build:  torch>=2.10.0+cu128
+#   Install torch FIRST, separately, then the rest:
+#     pip install torch --index-url https://download.pytorch.org/whl/cu128
+#   On Colab, torch is preinstalled; just `pip install -r requirements.txt` (minus torch line).
+
+transformers>=4.44
+datasets>=2.20
+accelerate>=0.33
+sentencepiece>=0.2.0
+protobuf
+evaluate>=0.4.2
+rouge_score>=0.1.2
+sacrebleu>=2.4
+pandas>=2.0
+numpy
+pyyaml
+matplotlib
+seaborn
+scikit-learn
+tqdm
